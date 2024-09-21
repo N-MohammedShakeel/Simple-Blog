@@ -1,11 +1,20 @@
+# Docker Setup
 
-docker build -t blogv .-- this will create an image
+```bash
+# Build the Docker image from the Dockerfile
+docker build -t blogv .
 
-- This is to run docker file using volumes 
+# Run the container using volumes
 docker run --name blog_cv -p 4000:4000 -v d:/udemy/web_development/others/blog:/app -v /app/node_modules blogv:latest
 
-- This is to run docker compse files
+# General format for running Docker containers with volumes
+docker run --name <container-name> -p <host-port>:<container-port> -v <sourcecode-folder-path>:<container-folder-path> -v <dependencies-folder-path>:<container-folder-path> <image-name>:<tag>
 
-docker compose build -- this builds the image 
-docker compose up -- this starts the container
-docker compose down -- this stops the container
+# Docker Compose: Build the images
+docker compose build
+
+# Docker Compose: Start the containers
+docker compose up
+
+# Docker Compose: Stop and remove the containers
+docker compose down
